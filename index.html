@@ -69,7 +69,7 @@
     ></div>
 
     <script>
-      var map = L.map('map').setView([-34.6083, -58.3712], 9)
+      var map = L.map('map').setView([-34.6083, -58.3712], 8)
 
       L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution:
@@ -78,7 +78,7 @@
       }).addTo(map)
 
       L.control.scale().addTo(map)
-      L.marker([-34.6083, -58.3712], { draggable: true }).addTo(map)
+      L.marker([-34.6083, -58.3712], { draggable: false }).addTo(map)
       var circle = L.circle([-34.6083, -58.3712], {
         color: 'blue',
         fillColor: '#ada8ff',
