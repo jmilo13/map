@@ -1,0 +1,90 @@
+<html class="js-focus-visible" data-js-focus-visible="">
+  <head>
+    <meta charset="utf-8" />
+
+    <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css"
+    />
+
+    <style>
+      #map {
+        width: 100%;
+        height: 600px;
+      }
+    </style>
+
+    <style type="text/css">
+      @font-face {
+        font-weight: 400;
+        font-style: normal;
+        font-family: 'Circular-Loom';
+
+        src: url('https://cdn.loom.com/assets/fonts/circular/CircularXXWeb-Book-cd7d2bcec649b1243839a15d5eb8f0a3.woff2')
+          format('woff2');
+      }
+
+      @font-face {
+        font-weight: 500;
+        font-style: normal;
+        font-family: 'Circular-Loom';
+
+        src: url('https://cdn.loom.com/assets/fonts/circular/CircularXXWeb-Medium-d74eac43c78bd5852478998ce63dceb3.woff2')
+          format('woff2');
+      }
+
+      @font-face {
+        font-weight: 700;
+        font-style: normal;
+        font-family: 'Circular-Loom';
+
+        src: url('https://cdn.loom.com/assets/fonts/circular/CircularXXWeb-Bold-83b8ceaf77f49c7cffa44107561909e4.woff2')
+          format('woff2');
+      }
+
+      @font-face {
+        font-weight: 900;
+        font-style: normal;
+        font-family: 'Circular-Loom';
+
+        src: url('https://cdn.loom.com/assets/fonts/circular/CircularXXWeb-Black-bf067ecb8aa777ceb6df7d72226febca.woff2')
+          format('woff2');
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="map"
+      class="
+        leaflet-container
+        leaflet-touch
+        leaflet-fade-anim
+        leaflet-grab
+        leaflet-touch-drag
+        leaflet-touch-zoom
+      "
+      tabindex="0"
+      style="position: relative; outline: none"
+    ></div>
+
+    <script>
+      var map = L.map('map').setView([-34.6083, -58.3712], 9)
+
+      L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution:
+          'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+        maxZoom: 18,
+      }).addTo(map)
+
+      L.control.scale().addTo(map)
+      L.marker([-34.6083, -58.3712], { draggable: true }).addTo(map)
+      var circle = L.circle([-34.6083, -58.3712], {
+        color: 'blue',
+        fillColor: '#ada8ff',
+        fillOpacity: 0.5,
+        radius: 50000,
+      }).addTo(map)
+    </script>
+  </body>
+</html>
